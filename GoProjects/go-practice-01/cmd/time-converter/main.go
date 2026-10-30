@@ -18,11 +18,11 @@ func main() {
 	fmt.Fprintln(file, "# Фактические результаты проверок работы программы")
 	fmt.Fprintln(file, "| Входные минуты | Вычисленные полные часы | Оставшиеся минуты |")
 	fmt.Fprintln(file, "| :--- | :--- | :--- |")
-	
+
 	for _, totalMinutes := range testCases {
 		if totalMinutes < 0 {
 			fmt.Fprintf(file, "| %d минут | Ошибка: не может быть < 0 | Ошибка |\n", totalMinutes)
-		continue
+			continue
 		}
 		hours := totalMinutes / minutesInHour
 		remainder := totalMinutes % minutesInHour
