@@ -20,3 +20,7 @@
 *.tmp
 .DS_Store
 Thumbs.db
+
+/tasks.json
+/my-tasks.json
+*.tmp
