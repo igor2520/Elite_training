@@ -61,3 +61,25 @@ go run ./cmd/task-model
 ```bash
 go run ./cmd/task-cli
 ```
+
+# Практическая работа № 6: PostgreSQL
+
+## Инструкция запуска
+1. Запуск базы данных: `docker compose up -d`
+2. Выполнение скриптов (по порядку):
+   `docker compose exec -T db psql -X -v ON_ERROR_STOP=1 -U student -d tasks_lab -f /work/sql/01_schema.sql`
+   `docker compose exec -T db psql -X -v ON_ERROR_STOP=1 -U student -d tasks_lab -f /work/sql/02_seed.sql`
+   `docker compose exec -T db psql -X -v ON_ERROR_STOP=1 -U student -d tasks_lab -f /work/sql/independent.sql`
+
+## Назначение таблиц
+* **projects** — хранит информацию о проектах (id, name, created_at).
+* **tasks** — хранит задачи (id, project_id, title, status, priority, created_at).
+Связь: **один-ко-многим** (у одного проекта может быть много задач).
+
+## Результат JOIN-запроса (из independent.sql)
+```text
+   project_name   | task_count 
+------------------+------------
+ Учебный бэкенд   |          3
+ Мобильный клиент |          1
+(2 rows)
