@@ -79,6 +79,7 @@ go run ./cmd/task-cli-json
 
 # Запуск тестов
 go test ./... -v
+```
 
 # Практическая работа № 6: PostgreSQL
 
